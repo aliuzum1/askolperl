@@ -5,26 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Askolperl | Ücretsiz Online Şans Oyunu</title>
     
-    <!-- Google AdSense -->
+    <!-- Google AdSense - Başlık Kısmı -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4346551902420368" crossorigin="anonymous"></script>
 
     <style>
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f0f2f5; margin: 0; padding: 10px; color: #333; overflow-x: hidden; }
         
-        .live-counter-top {
-            position: fixed;
-            top: 10px;
-            left: 10px;
-            color: #3498db;
-            font-weight: bold;
-            font-size: 14px;
-            z-index: 1000;
-            background: rgba(255, 255, 255, 0.9);
-            padding: 5px 8px;
-            border-radius: 5px;
-            border: 1px solid #3498db;
-        }
-
+        .live-counter-top { position: fixed; top: 10px; left: 10px; color: #3498db; font-weight: bold; font-size: 14px; z-index: 1000; background: rgba(255, 255, 255, 0.9); padding: 5px 8px; border-radius: 5px; border: 1px solid #3498db; }
         .container { max-width: 500px; margin: 40px auto 0 auto; background: #fff; padding: 20px; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); text-align: center; }
         
         .floater { position: fixed; font-size: 35px; z-index: 100; pointer-events: none; opacity: 0.8; }
@@ -32,8 +19,8 @@
         .left-floater { top: 15%; left: 5%; animation: floatY 3s infinite ease-in-out; }
         .right-floater { top: 70%; right: 5%; animation: floatY 5s infinite ease-in-out; }
 
-        .ad-space { min-height: 80px; margin: 10px 0; background: #f9f9f9; border: 1px dashed #ccc; display: flex; align-items: center; justify-content: center; color: #999; font-size: 11px; }
-
+        .ad-space { min-height: 80px; margin: 10px 0; }
+        
         h1 { margin: 0 0 10px 0; font-size: 24px; color: #2c3e50; }
         #numberDisplay { font-size: 50px; font-weight: bold; color: #3498db; margin: 10px 0; }
         
@@ -43,7 +30,7 @@
         .btn-ust { background: #2ecc71; }
 
         .result-box { margin: 15px 0; font-weight: bold; min-height: 24px; font-size: 18px; }
-        .seo-content { margin-top: 20px; text-align: left; padding: 10px; border-border-top: 1px solid #eee; font-size: 14px; }
+        .seo-content { margin-top: 20px; text-align: left; padding: 10px; border-top: 1px solid #eee; font-size: 14px; }
     </style>
 </head>
 <body>
@@ -56,7 +43,11 @@
     <div class="floater right-floater">🎮</div>
 
     <div class="container">
-        <div class="ad-space">Reklam Alanı</div>
+        <!-- Üst Reklam -->
+        <div class="ad-space">
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4346551902420368" data-ad-slot="8439247854" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
 
         <h1>Askolperl</h1>
         <div id="numberDisplay">?</div>
@@ -68,7 +59,11 @@
 
         <div id="resultText" class="result-box"></div>
 
-        <div class="ad-space">Reklam Alanı</div>
+        <!-- Alt Reklam -->
+        <div class="ad-space">
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4346551902420368" data-ad-slot="8439247854" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
 
         <div class="seo-content">
             <h2>Neden Askolperl?</h2>
@@ -78,7 +73,6 @@
 
     <!-- Firebase ve Oyun Scripti -->
     <script type="module">
-        // --- FIREBASE BAĞLANTISI ---
         import { initializeApp } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-app.js";
         import { getDatabase, ref, onValue, push, onDisconnect, set } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-database.js";
         import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-analytics.js";
@@ -98,20 +92,18 @@
         const db = getDatabase(app);
         const analytics = getAnalytics(app);
 
-        // Canlı Ziyaretçi Sayacı
         const connectedRef = ref(db, 'online_users');
         const newUserRef = push(connectedRef);
         onDisconnect(newUserRef).remove();
         set(newUserRef, true);
 
         onValue(connectedRef, (snapshot) => {
-            const count = snapshot.size;
-            document.getElementById('visitor-count').innerText = count;
+            document.getElementById('visitor-count').innerText = snapshot.size;
         });
+    </script>
 
-        // --- OYUN MANTIĞI ---
+    <script>
         const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-
         function beep(freq) {
             if (audioCtx.state === 'suspended') { audioCtx.resume(); }
             const osc = audioCtx.createOscillator();
