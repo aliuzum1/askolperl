@@ -3,25 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Askolperl | Ücretsiz Online Şans Oyunu</title>
+    <title>Askolperl | Ücretsiz Online Şans Oyunu ve Olasılık Simülasyonu</title>
     
     <!-- Google AdSense - Başlık Kısmı -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4346551902420368" crossorigin="anonymous"></script>
 
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f0f2f5; margin: 0; padding: 10px; color: #333; overflow-x: hidden; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f0f2f5; margin: 0; padding: 10px; color: #333; overflow-x: hidden; line-height: 1.6; }
         
         .live-counter-top { position: fixed; top: 10px; left: 10px; color: #3498db; font-weight: bold; font-size: 14px; z-index: 1000; background: rgba(255, 255, 255, 0.9); padding: 5px 8px; border-radius: 5px; border: 1px solid #3498db; }
-        .container { max-width: 500px; margin: 40px auto 0 auto; background: #fff; padding: 20px; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); text-align: center; }
+        .container { max-width: 600px; margin: 40px auto 0 auto; background: #fff; padding: 25px; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); text-align: center; }
         
         .floater { position: fixed; font-size: 35px; z-index: 100; pointer-events: none; opacity: 0.8; }
         @keyframes floatY { 0% { transform: translateY(0); } 50% { transform: translateY(30px); } 100% { transform: translateY(0); } }
         .left-floater { top: 15%; left: 5%; animation: floatY 3s infinite ease-in-out; }
         .right-floater { top: 70%; right: 5%; animation: floatY 5s infinite ease-in-out; }
 
-        .ad-space { min-height: 80px; margin: 10px 0; }
+        .ad-space { min-height: 90px; margin: 15px 0; }
         
-        h1 { margin: 0 0 10px 0; font-size: 24px; color: #2c3e50; }
+        h1 { margin: 0 0 10px 0; font-size: 26px; color: #2c3e50; }
+        h2 { font-size: 18px; color: #34495e; margin-top: 20px; }
         #numberDisplay { font-size: 50px; font-weight: bold; color: #3498db; margin: 10px 0; }
         
         .btn { padding: 12px 25px; cursor: pointer; border: none; border-radius: 8px; color: white; font-weight: bold; font-size: 16px; margin: 5px; transition: transform 0.2s; width: 140px; }
@@ -30,7 +31,17 @@
         .btn-ust { background: #2ecc71; }
 
         .result-box { margin: 15px 0; font-weight: bold; min-height: 24px; font-size: 18px; }
-        .seo-content { margin-top: 20px; text-align: left; padding: 10px; border-top: 1px solid #eee; font-size: 14px; }
+        
+        .seo-content { margin-top: 30px; text-align: left; padding: 15px; border-top: 1px solid #eee; font-size: 14px; background: #fafafa; border-radius: 8px; }
+        .seo-content p { margin-bottom: 10px; color: #555; }
+
+        .contact-form { display: flex; flex-direction: column; gap: 10px; margin-top: 10px; }
+        .contact-form input, .contact-form textarea { padding: 10px; border: 1px solid #ccc; border-radius: 5px; font-family: inherit; font-size: 14px; }
+        .contact-form button { background: #3498db; width: 100%; margin: 0; }
+
+        footer { margin-top: 25px; font-size: 12px; color: #7f8c8d; border-top: 1px solid #ddd; padding-top: 15px; text-align: center; }
+        footer a { color: #3498db; text-decoration: none; margin: 0 5px; }
+        footer a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
@@ -50,6 +61,8 @@
         </div>
 
         <h1>Askolperl</h1>
+        <p>1 ile 1.000.000 arasındaki rastgele sayı tahmin oyununa hoş geldiniz.</p>
+        
         <div id="numberDisplay">?</div>
 
         <div>
@@ -65,10 +78,38 @@
             <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
         </div>
 
+        <!-- Zengin İçerik Alanı -->
         <div class="seo-content">
-            <h2>Neden Askolperl?</h2>
-            <p><strong>Askolperl</strong>, ücretsiz bir online şans oyunu simülasyonudur. Stres atmak ve şansınızı denemek için en hızlı platform!</p>
+            <h2>Askolperl Nedir ve Nasıl Oynanır?</h2>
+            <p><strong>Askolperl</strong>, kullanıcıların temel olasılık mantığına dayalı olarak eğlenceli vakit geçirmesini sağlayan interaktif bir simülasyon platformudur. Sistem tarafından rastgele üretilen bir sonraki sayının, ekranda yazan mevcut sayıdan <strong>"Alt"</strong> mı yoksa <strong>"Üst"</strong> mü olacağını tahmin etmeniz esasına dayanır.</p>
+            
+            <h2>Olasılık Teorisi ve Şans Oyunları</h2>
+            <p>Günlük hayatta karşımıza çıkan pek çok karar belirsizlik barındırır. Matematikte olasılık, olayların gerçekleşme şansını sayısal olarak ifade eder. Bu simülasyon, saf rastgelelik ilkeleri üzerine kurulmuştur ve her adımda eşit şans oranları sunar. Stres atmak, hızlı kararlar alma becerisini test etmek ve eğlenmek isteyenler için pratik bir web aracıdır.</p>
+            
+            <h2>Neden Bu Simülasyonu Tercih Etmelisiniz?</h2>
+            <p>Herhangi bir indirme veya üyelik gerektirmeden, tarayıcınız üzerinden anında erişebileceğiniz Askolperl, hafif ve optimize edilmiş altyapısıyla akıcı bir deneyim sunar. Canlı ziyaretçi sayacı sayesinde diğer kullanıcılarla eş zamanlı etkileşimde bulunabilirsiniz.</p>
         </div>
+
+        <!-- İletişim Formu Alanı -->
+        <div id="iletisim" class="seo-content">
+            <h2>İletişim</h2>
+            <p>Görüş, öneri veya bildirimleriniz için aşağıdaki formu kullanarak bize doğrudan ulaşabilirsiniz:</p>
+            <form action="https://formspree.io/f/xnjedlwa" method="POST" class="contact-form">
+                <input type="email" name="email" placeholder="E-posta adresiniz" required>
+                <textarea name="message" placeholder="Mesajınız..." rows="4" required></textarea>
+                <button type="submit" class="btn">Gönder</button>
+            </form>
+        </div>
+
+        <!-- Yasal Bağlantılar -->
+        <footer>
+            <p>© 2026 Askolperl. Tüm hakları saklıdır.</p>
+            <p>
+                <a href="#gizlilik">Gizlilik Politikası</a> | 
+                <a href="#kullanim">Kullanım Şartları</a> | 
+                <a href="#iletisim">İletişim</a>
+            </p>
+        </footer>
     </div>
 
     <!-- Firebase ve Oyun Scripti -->
